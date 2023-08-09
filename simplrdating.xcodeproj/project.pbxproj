@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EC436FA2A83FD4A004E6DD0 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC436F92A83FD4A004E6DD0 /* SwipingView.swift */; };
+		5EC436FB2A83FD4A004E6DD0 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC436F92A83FD4A004E6DD0 /* SwipingView.swift */; };
+		5EC436FC2A83FD4A004E6DD0 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC436F92A83FD4A004E6DD0 /* SwipingView.swift */; };
 		5EF492732A83EB6700B52554 /* simplrdatingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF492722A83EB6700B52554 /* simplrdatingApp.swift */; };
 		5EF492752A83EB6700B52554 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF492742A83EB6700B52554 /* ContentView.swift */; };
 		5EF492772A83EB6900B52554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EF492762A83EB6900B52554 /* Assets.xcassets */; };
@@ -46,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5EC436F92A83FD4A004E6DD0 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
 		5EF4926F2A83EB6700B52554 /* simplrdating.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simplrdating.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF492722A83EB6700B52554 /* simplrdatingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simplrdatingApp.swift; sourceTree = "<group>"; };
 		5EF492742A83EB6700B52554 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 		5EF492A62A83EC6E00B52554 /* Home (Swiping) */ = {
 			isa = PBXGroup;
 			children = (
+				5EC436F92A83FD4A004E6DD0 /* SwipingView.swift */,
 			);
 			path = "Home (Swiping)";
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				5EF492752A83EB6700B52554 /* ContentView.swift in Sources */,
 				5EF492B32A83ED0400B52554 /* Home.swift in Sources */,
 				5EF492732A83EB6700B52554 /* simplrdatingApp.swift in Sources */,
+				5EC436FA2A83FD4A004E6DD0 /* SwipingView.swift in Sources */,
 				5EF492AB2A83ECD000B52554 /* CustomIndicatorView.swift in Sources */,
 				5EF492B72A83ED3E00B52554 /* PageIntro.swift in Sources */,
 			);
@@ -404,6 +410,7 @@
 			files = (
 				5EF492B82A83ED3E00B52554 /* PageIntro.swift in Sources */,
 				5EF492842A83EB6A00B52554 /* simplrdatingTests.swift in Sources */,
+				5EC436FB2A83FD4A004E6DD0 /* SwipingView.swift in Sources */,
 				5EF492AC2A83ECD000B52554 /* CustomIndicatorView.swift in Sources */,
 				5EF492B42A83ED0400B52554 /* Home.swift in Sources */,
 				5EF492B02A83ECEC00B52554 /* CustomTextField.swift in Sources */,
@@ -418,6 +425,7 @@
 				5EF492902A83EB6A00B52554 /* simplrdatingUITestsLaunchTests.swift in Sources */,
 				5EF492B52A83ED0400B52554 /* Home.swift in Sources */,
 				5EF4928E2A83EB6A00B52554 /* simplrdatingUITests.swift in Sources */,
+				5EC436FC2A83FD4A004E6DD0 /* SwipingView.swift in Sources */,
 				5EF492AD2A83ECD000B52554 /* CustomIndicatorView.swift in Sources */,
 				5EF492B92A83ED3E00B52554 /* PageIntro.swift in Sources */,
 			);
