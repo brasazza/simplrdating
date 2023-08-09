@@ -121,8 +121,6 @@ struct Profile: Identifiable, Equatable {
 struct SwipingView_Previews: PreviewProvider {
     static var previews: some View {
         SwipingView()
-            .frame(width: 430, height: 932)  // iPhone X dimensions as an example
-            .previewLayout(.sizeThatFits)
     }
 }
 
