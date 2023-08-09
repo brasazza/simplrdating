@@ -9,10 +9,16 @@ import SwiftUI
 
 struct CustomIndicatorView: View {
     /// View Properties
+    @Environment(\.colorScheme) var colorScheme
     var totalPages: Int
     var currentPage: Int
-    var activeTint: Color = .black
-    var inActiveTint: Color = .gray.opacity(0.5)
+    var activeTint: Color {
+        colorScheme == .dark ? .white : .black
+    }
+    var inActiveTint: Color {
+        colorScheme == .dark ? .white.opacity(0.5) : .gray.opacity(0.5)
+    }
+
     var body: some View {
         HStack(spacing: 8) {
             ForEach(0..<totalPages, id: \.self) {
