@@ -92,6 +92,8 @@ struct IntroView<ActionView: View>: View {
                     .aspectRatio(contentMode: .fit)
                     .padding(15)
                     .frame(width: size.width, height: size.height)
+                    .shadow(color: Color.black.opacity(0.5), radius: 10)
+
             }
             /// Moving Up
             .offset(y: showView ? 0 : -size.height / 2)
@@ -129,16 +131,22 @@ struct IntroView<ActionView: View>: View {
                             changeIntro()
                         } label: {
                             Text("Next")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color(.darkGray))
-                                .frame(width: size.width * 0.4)
-                                .padding(.vertical, 15)
-                                .background {
-                                    Capsule()
-                                        .fill(Color(.systemGray6)) // Light gray background
-                                        .shadow(color: Color.white.opacity(1), radius: 10, x: -5, y: -5) // Light shadow
-                                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 5, y: 5) // Dark shadow
-                                }
+                               .fontWeight(.semibold)
+                               .foregroundColor(Color(.darkGray))
+                               .frame(width: size.width * 0.4)
+                               .padding(.vertical, 15)
+                               .background {
+                                  Capsule()
+                                     .fill(
+                                        LinearGradient(gradient: Gradient(colors: [Color(.systemGray6), Color(.white)]), startPoint: .top, endPoint: .bottom)
+                                     )
+                                     .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+                                     .shadow(color: Color.black.opacity(0.2), radius: 10, x: 5, y: 5)
+                                     .overlay(
+                                        Capsule()
+                                           .stroke(LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.07), Color.clear]), startPoint: .top, endPoint: .bottom), lineWidth: 0.5)
+                                     )
+                               }
                         }
                         .frame(maxWidth: .infinity)
                     }
@@ -211,4 +219,3 @@ struct IntroView<ActionView: View>: View {
         return pageIntros.filter { !$0.displaysAction }
     }
 }
-
