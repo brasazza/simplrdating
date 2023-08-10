@@ -9,10 +9,12 @@ import SwiftUI
 
 struct Home: View {
     /// View Properties
+    @Environment(\.colorScheme) var colorScheme
     @State private var activeIntro: PageIntro = pageIntros[0]
     @State private var emailID: String = ""
     @State private var password: String = ""
     @State private var keyboardHeight: CGFloat = 0
+
     var body: some View {
         GeometryReader {
             let size = $0.size
@@ -31,12 +33,12 @@ struct Home: View {
                     } label: {
                         Text("Continue")
                             .fontWeight(.semibold)
-                            .foregroundColor(.white)
+                            .foregroundColor(colorScheme == .dark ? .black : .white)
                             .padding(.vertical, 15)
                             .frame(maxWidth: .infinity)
                             .background {
                                 Capsule()
-                                    .fill(.black)
+                                    .fill(colorScheme == .dark ? Color.white : Color.black)
                             }
                     }
                 }
@@ -69,6 +71,7 @@ struct Home_Previews: PreviewProvider {
 /// Intro View
 struct IntroView<ActionView: View>: View {
     @Binding var intro: PageIntro
+    @Environment(\.colorScheme) var colorScheme
     var size: CGSize
     var actionView: ActionView
     
@@ -92,6 +95,8 @@ struct IntroView<ActionView: View>: View {
                     .aspectRatio(contentMode: .fit)
                     .padding(15)
                     .frame(width: size.width, height: size.height)
+                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.6), radius: 20)
+
             }
             /// Moving Up
             .offset(y: showView ? 0 : -size.height / 2)
@@ -104,17 +109,18 @@ struct IntroView<ActionView: View>: View {
                 Text(intro.title)
                     .font(.system(size: 40))
                     .fontWeight(.black)
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
                     .multilineTextAlignment(.center)
-                    .shadow(radius: 20)
+                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.5), radius: 20)
                 
                 
                 Text(intro.subTitle)
                     .font(.headline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(colorScheme == .dark ? .white : .gray)
                     .multilineTextAlignment(.center)
                     .padding(.top, 15)
-                    .shadow(radius: 20)
-                
+                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.5), radius: 20)
+
                 if !intro.displaysAction {
                     Group {
                         Spacer(minLength: 25)
@@ -129,16 +135,40 @@ struct IntroView<ActionView: View>: View {
                             changeIntro()
                         } label: {
                             Text("Next")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color(.darkGray))
-                                .frame(width: size.width * 0.4)
-                                .padding(.vertical, 15)
-                                .background {
-                                    Capsule()
-                                        .fill(Color(.systemGray6)) // Light gray background
-                                        .shadow(color: Color.white.opacity(1), radius: 10, x: -5, y: -5) // Light shadow
-                                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 5, y: 5) // Dark shadow
-                                }
+                               .fontWeight(.semibold)
+                               .foregroundColor(Color(.black))
+                               .frame(width: size.width * 0.4)
+                               .padding(.vertical, 15)
+                               .background {
+                                   Capsule()
+                               .fill(
+                                   LinearGradient(
+                                       gradient: Gradient(colors: [
+                                           colorScheme == .dark ? Color(red: 242/255, green: 242/255, blue: 247/255) : Color(red: 242/255, green: 242/255, blue: 247/255),
+                                           Color.white
+                                       ]),
+                                       startPoint: .top,
+                                       endPoint: .bottom
+                                   )
+                               )
+                               .shadow(color: colorScheme == .dark ? Color.gray.opacity(0.3) : Color.white.opacity(0.7), radius: 5, x: -5, y: -5)
+                              .shadow(color: colorScheme == .dark ? Color.white.opacity(0.4) : Color.black.opacity(0.2), radius: 5, x: 5, y: 5)
+                              .overlay(
+                                  Capsule()
+                                      .stroke(
+                                          LinearGradient(
+                                              gradient: Gradient(colors: [
+                                                  colorScheme == .dark ? Color.white.opacity(0.07) : Color.black.opacity(0.07),
+                                                  Color.clear
+                                              ]),
+                                              startPoint: .top,
+                                              endPoint: .bottom
+                                          ),
+                                          lineWidth: 0.5
+                                      )
+                              )
+
+                               }
                         }
                         .frame(maxWidth: .infinity)
                     }
@@ -166,7 +196,7 @@ struct IntroView<ActionView: View>: View {
                     Image(systemName: "chevron.left")
                         .font(.title2)
                         .fontWeight(.semibold)
-                        .foregroundColor(.black)
+                        .foregroundColor(colorScheme == .dark ? .white : .black)
                         .contentShape(Rectangle())
                 }
                 .padding(10)
@@ -211,4 +241,3 @@ struct IntroView<ActionView: View>: View {
         return pageIntros.filter { !$0.displaysAction }
     }
 }
-
