@@ -10,6 +10,9 @@
 		5EC436FA2A83FD4A004E6DD0 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC436F92A83FD4A004E6DD0 /* SwipingView.swift */; };
 		5EC436FB2A83FD4A004E6DD0 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC436F92A83FD4A004E6DD0 /* SwipingView.swift */; };
 		5EC436FC2A83FD4A004E6DD0 /* SwipingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC436F92A83FD4A004E6DD0 /* SwipingView.swift */; };
+		5EC436FE2A869CF2004E6DD0 /* MatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC436FD2A869CF2004E6DD0 /* MatchesView.swift */; };
+		5EC436FF2A869CF2004E6DD0 /* MatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC436FD2A869CF2004E6DD0 /* MatchesView.swift */; };
+		5EC437002A869CF2004E6DD0 /* MatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC436FD2A869CF2004E6DD0 /* MatchesView.swift */; };
 		5EF492732A83EB6700B52554 /* simplrdatingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF492722A83EB6700B52554 /* simplrdatingApp.swift */; };
 		5EF492752A83EB6700B52554 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF492742A83EB6700B52554 /* ContentView.swift */; };
 		5EF492772A83EB6900B52554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EF492762A83EB6900B52554 /* Assets.xcassets */; };
@@ -50,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		5EC436F92A83FD4A004E6DD0 /* SwipingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingView.swift; sourceTree = "<group>"; };
+		5EC436FD2A869CF2004E6DD0 /* MatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesView.swift; sourceTree = "<group>"; };
 		5EF4926F2A83EB6700B52554 /* simplrdating.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simplrdating.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF492722A83EB6700B52554 /* simplrdatingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simplrdatingApp.swift; sourceTree = "<group>"; };
 		5EF492742A83EB6700B52554 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +95,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EC437012A86ADEB004E6DD0 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		5EF492662A83EB6700B52554 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +167,7 @@
 		5EF4929C2A83EBDB00B52554 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5EC437012A86ADEB004E6DD0 /* New Group */,
 				5EF492A22A83EC4C00B52554 /* Splash */,
 				5EF492A32A83EC5400B52554 /* Registration */,
 				5EF492A42A83EC5E00B52554 /* Login */,
@@ -246,6 +258,7 @@
 		5EF492A72A83EC7800B52554 /* Matches */ = {
 			isa = PBXGroup;
 			children = (
+				5EC436FD2A869CF2004E6DD0 /* MatchesView.swift */,
 			);
 			path = Matches;
 			sourceTree = "<group>";
@@ -398,6 +411,7 @@
 				5EF492752A83EB6700B52554 /* ContentView.swift in Sources */,
 				5EF492B32A83ED0400B52554 /* Home.swift in Sources */,
 				5EF492732A83EB6700B52554 /* simplrdatingApp.swift in Sources */,
+				5EC436FE2A869CF2004E6DD0 /* MatchesView.swift in Sources */,
 				5EC436FA2A83FD4A004E6DD0 /* SwipingView.swift in Sources */,
 				5EF492AB2A83ECD000B52554 /* CustomIndicatorView.swift in Sources */,
 				5EF492B72A83ED3E00B52554 /* PageIntro.swift in Sources */,
@@ -409,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF492B82A83ED3E00B52554 /* PageIntro.swift in Sources */,
+				5EC436FF2A869CF2004E6DD0 /* MatchesView.swift in Sources */,
 				5EF492842A83EB6A00B52554 /* simplrdatingTests.swift in Sources */,
 				5EC436FB2A83FD4A004E6DD0 /* SwipingView.swift in Sources */,
 				5EF492AC2A83ECD000B52554 /* CustomIndicatorView.swift in Sources */,
@@ -425,6 +440,7 @@
 				5EF492902A83EB6A00B52554 /* simplrdatingUITestsLaunchTests.swift in Sources */,
 				5EF492B52A83ED0400B52554 /* Home.swift in Sources */,
 				5EF4928E2A83EB6A00B52554 /* simplrdatingUITests.swift in Sources */,
+				5EC437002A869CF2004E6DD0 /* MatchesView.swift in Sources */,
 				5EC436FC2A83FD4A004E6DD0 /* SwipingView.swift in Sources */,
 				5EF492AD2A83ECD000B52554 /* CustomIndicatorView.swift in Sources */,
 				5EF492B92A83ED3E00B52554 /* PageIntro.swift in Sources */,

@@ -33,3 +33,7 @@ struct CustomTextField: View {
         }
     }
 }
+
+#Preview {
+    CustomTextField(text: .constant(""), hint: "Password", leadingIcon: Image(systemName: "lock"), isPassword: true)
+}

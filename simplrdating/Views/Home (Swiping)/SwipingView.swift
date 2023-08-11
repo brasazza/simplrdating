@@ -17,39 +17,63 @@ struct SwipingView: View {
     @State private var translation: CGSize = .zero
 
     var body: some View {
-        VStack {
-            ZStack {
-                ForEach(profiles, id: \.id) { profile in
-                    // Check if the current profile is the last one in the array
-                    if profile == profiles.last {
-                        ProfileCard(profile: profile)
-                            .offset(x: translation.width, y: 0) // Only allow horizontal movement
-                            .rotationEffect(.degrees(Double(translation.width / 10))) // Adjust rotation based on swipe distance
-                            .animation(.interactiveSpring, value: 1.0)
-                            .gesture(
-                                DragGesture()
-                                    .onChanged { gesture in
-                                        translation = gesture.translation
-                                    }
-                                    .onEnded { _ in
-                                        handleSwipe()
-                                    }
-                            )
-                    } else {
-                        // Display other cards in the stack without the gesture
-                        ProfileCard(profile: profile)
+        NavigationView {
+            VStack {
+                ZStack {
+                    Text("simplr.")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: {
+                            // Navigate to Settings
+                        }) {
+                            Image(systemName: "gearshape.fill")
+                                .font(.title)
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.trailing)
                     }
                 }
+                
+                Spacer()
+                
+                ZStack {
+                    ForEach(profiles, id: \.id) { profile in
+                        // Check if the current profile is the last one in the array
+                        if profile == profiles.last {
+                            ProfileCard(profile: profile)
+                                .offset(x: translation.width, y: 0) // Only allow horizontal movement
+                                .rotationEffect(.degrees(Double(translation.width / 10))) // Adjust rotation based on swipe distance
+                                .animation(.interactiveSpring, value: 1.0)
+                                .gesture(
+                                    DragGesture()
+                                        .onChanged { gesture in
+                                            translation = gesture.translation
+                                        }
+                                        .onEnded { _ in
+                                            handleSwipe()
+                                        }
+                                )
+                        } else {
+                            // Display other cards in the stack without the gesture
+                            ProfileCard(profile: profile)
+                        }
+                    }
+                }
+                .frame(height:400)
+                .padding()
+                
+                Spacer()
+                
+                BottomNavBar()
+                    .padding(.bottom)
             }
         }
-        .padding()
-        
-        Spacer()
-        
-        BottomNavBar()
-            .padding(.bottom)
     }
-
+    
     func handleSwipe() {
         if translation.width < -100 {
             // Swipe left (dislike)
@@ -80,33 +104,27 @@ struct ProfileCard: View {
 
 struct BottomNavBar: View {
     var body: some View {
-        HStack {
+        HStack(spacing: 50) {  // Adjust the spacing value as needed
             Button(action: {
-                // Dislike action
+                // Navigate to Profile
             }) {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.largeTitle)
-                    .foregroundColor(.red)
-            }
-            
-            Spacer()
-
-            Button(action: {
-                // Refresh action
-            }) {
-                Image(systemName: "arrow.clockwise")
+                Image(systemName: "person.crop.circle.fill")
                     .font(.largeTitle)
                     .foregroundColor(.gray)
             }
 
-            Spacer()
-
             Button(action: {
-                // Like action
+                // Navigate to Main Swiping Area
             }) {
-                Image(systemName: "heart.circle.fill")
+                Image(systemName: "flame.fill")
                     .font(.largeTitle)
-                    .foregroundColor(.green)
+                    .foregroundColor(.red)
+            }
+
+            NavigationLink(destination: MatchesView()) {
+                Image(systemName: "message.circle.fill")
+                    .font(.largeTitle)
+                    .foregroundColor(.gray)
             }
         }
         .padding(.horizontal)
@@ -118,10 +136,17 @@ struct Profile: Identifiable, Equatable {
     var imageName: String
 }
 
-struct SwipingView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwipingView()
-    }
+//struct SwipingView_Previews: PreviewProvider {
+//    static var previews: some View {
+        
+//        VStack {
+//            SwipingView()
+//                .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+//                .previewDisplayName("iPhone 14")
+//        }
+//    }
+//}
+
+#Preview {
+    SwipingView()
 }
-
-
