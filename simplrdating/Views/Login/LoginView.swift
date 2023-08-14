@@ -11,20 +11,20 @@ struct LoginView: View {
     
     var body: some View {
         NavigationView {
-                   VStack(spacing: 10) {
-                       HStack {
-                           Button(action: {
-                               self.presentationMode.wrappedValue.dismiss()
-                           }) {
-                               Image(systemName: "chevron.left")
-                                   .font(.title2)
-                                   .fontWeight(.semibold)
-                                   .foregroundColor(colorScheme == .dark ? .white : .black)
-                                   .contentShape(Rectangle())
-                           }
-                           
+            VStack(spacing: 10) {
+                HStack {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                            .contentShape(Rectangle())
+                    }
+                    
                     Spacer()
-                        
+                    
                 }
                 .padding(.bottom, 30)
                 // Image, Title and Subtitle
@@ -123,7 +123,7 @@ struct LoginView: View {
                     Text("You do not have an account? ")
                         .font(.caption)
                         .foregroundColor(colorScheme == .dark ? .white : .gray)
-
+                    
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
@@ -139,9 +139,9 @@ struct LoginView: View {
         }
     }
     
-    struct LoginView_Previews: PreviewProvider {
-        static var previews: some View {
-            LoginView()
+        struct LoginView_Previews: PreviewProvider {
+            static var previews: some View {
+                LoginView()
+            }
         }
     }
-}

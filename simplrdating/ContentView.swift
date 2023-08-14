@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Home()
+        MainView()
+            .preferredColorScheme(.light)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        MainView()
     }
 }
