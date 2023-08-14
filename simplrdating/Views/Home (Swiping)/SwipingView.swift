@@ -19,24 +19,6 @@ struct SwipingView: View {
     var body: some View {
         NavigationView {
             VStack {
-                ZStack {
-                    Text("simplr.")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    
-                    HStack {
-                        Spacer()
-                        
-                        Button(action: {
-                            // Navigate to Settings
-                        }) {
-                            Image(systemName: "gearshape.fill")
-                                .font(.title)
-                                .foregroundColor(.gray)
-                        }
-                        .padding(.trailing)
-                    }
-                }
                 
                 Spacer()
                 
@@ -68,8 +50,6 @@ struct SwipingView: View {
                 
                 Spacer()
                 
-                BottomNavBar()
-                    .padding(.bottom)
             }
         }
     }
@@ -102,34 +82,34 @@ struct ProfileCard: View {
     }
 }
 
-struct BottomNavBar: View {
-    var body: some View {
-        HStack(spacing: 50) {  // Adjust the spacing value as needed
-            Button(action: {
-                // Navigate to Profile
-            }) {
-                Image(systemName: "person.crop.circle.fill")
-                    .font(.largeTitle)
-                    .foregroundColor(.gray)
-            }
-
-            Button(action: {
-                // Navigate to Main Swiping Area
-            }) {
-                Image(systemName: "flame.fill")
-                    .font(.largeTitle)
-                    .foregroundColor(.red)
-            }
-
-            NavigationLink(destination: MatchesView()) {
-                Image(systemName: "message.circle.fill")
-                    .font(.largeTitle)
-                    .foregroundColor(.gray)
-            }
-        }
-        .padding(.horizontal)
-    }
-}
+// struct BottomNavBar: View {
+//    var body: some View {
+//        HStack(spacing: 50) {  // Adjust the spacing value as needed
+//            Button(action: {
+//                // Navigate to Profile
+//            }) {
+//                Image(systemName: "person.crop.circle.fill")
+//                    .font(.largeTitle)
+//                    .foregroundColor(.gray)
+//            }
+//
+//            Button(action: {
+//                // Navigate to Main Swiping Area
+//            }) {
+//                Image(systemName: "flame.fill")
+//                    .font(.largeTitle)
+//                    .foregroundColor(.red)
+//            }
+//
+//            NavigationLink(destination: MatchesView()) {
+//                Image(systemName: "message.circle.fill")
+//                    .font(.largeTitle)
+//                    .foregroundColor(.gray)
+//            }
+//        }
+//        .padding(.horizontal)
+//    }
+//}
 
 struct Profile: Identifiable, Equatable {
     var id: Int

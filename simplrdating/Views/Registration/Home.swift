@@ -60,11 +60,11 @@ struct Home: View {
     }
 }
 
-struct Home_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct Home_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
 
 /// Intro View
 struct IntroView<ActionView: View>: View {
@@ -218,4 +218,8 @@ struct IntroView<ActionView: View>: View {
     var filteredPages: [PageIntro] {
         return pageIntros.filter { !$0.displaysAction }
     }
+}
+
+#Preview {
+    Home()
 }

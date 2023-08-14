@@ -19,11 +19,6 @@ struct MatchesView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Matches")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.top)
-                
                 if matchedProfiles.isEmpty {
                     Spacer()
                     Text("No matches yet. Keep swiping!")
