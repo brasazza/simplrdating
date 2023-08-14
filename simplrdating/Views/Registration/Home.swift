@@ -22,16 +22,59 @@ struct Home: View {
             IntroView(intro: $activeIntro, size: size) {
                 /// User Login/Signup View
                 VStack(spacing: 10) {
+                    
+                    Button {
+                                            
+                    } label: {
+                        HStack {
+                            Image("googlelogo")
+                                .resizable()
+                                .frame(width: 16, height: 16)
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                            Text("Sign Up with Google")
+                                .fontWeight(.semibold)
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                        }
+                        .padding(.vertical, 15)
+                        .frame(maxWidth: .infinity)
+                        .background {
+                            Capsule()
+                                .fill(colorScheme == .dark ? Color.black : Color.white)
+                                .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 5)
+                        }
+                    }
+                    
+                    Button {
+                                            
+                    } label: {
+                        HStack {
+                            Image(systemName: "apple.logo")
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                            Text("Sign Up with Apple")
+                                .fontWeight(.semibold)
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                        }
+                        .padding(.vertical, 15)
+                        .frame(maxWidth: .infinity)
+                        .background {
+                            Capsule()
+                                .fill(colorScheme == .dark ? Color.black : Color.white)
+                                .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 5)
+                        }
+                    }
+                    
+                    Spacer(minLength: 10)
+
                     /// Custom TextField
                     CustomTextField(text: $emailID, hint: "Email Address", leadingIcon: Image(systemName: "envelope"))
-                    CustomTextField(text: $emailID, hint: "Password", leadingIcon: Image(systemName: "lock"), isPassword: true)
+                    CustomTextField(text: $password, hint: "Password", leadingIcon: Image(systemName: "lock"), isPassword: true)
                     
                     Spacer(minLength: 10)
                     
                     Button {
                         
                     } label: {
-                        Text("Continue")
+                        Text("Sign Up")
                             .fontWeight(.semibold)
                             .foregroundColor(colorScheme == .dark ? .black : .white)
                             .padding(.vertical, 15)
@@ -40,7 +83,23 @@ struct Home: View {
                                 Capsule()
                                     .fill(colorScheme == .dark ? Color.white : Color.black)
                             }
+                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.5) : Color.black.opacity(0.5), radius: 10)
                     }
+                    Spacer()
+                    
+                    HStack(spacing: 0) {
+                        Text("You already have an account? ")
+                            .font(.caption)
+                            .foregroundColor(colorScheme == .dark ? .white : .gray)
+
+                        NavigationLink(destination: LoginView()) {
+                            Text("Log In")
+                                .font(.caption)
+                                .foregroundColor(Color.blue)
+                                .underline()
+                        }
+                    }
+
                 }
                 .padding(.top, 25)
             }
@@ -95,7 +154,7 @@ struct IntroView<ActionView: View>: View {
                     .aspectRatio(contentMode: .fit)
                     .padding(15)
                     .frame(width: size.width, height: size.height)
-                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.6), radius: 20)
+                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.3), radius: 20)
 
             }
             /// Moving Up
@@ -111,7 +170,7 @@ struct IntroView<ActionView: View>: View {
                     .fontWeight(.black)
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     .multilineTextAlignment(.center)
-                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.5), radius: 20)
+                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 20)
                 
                 
                 Text(intro.subTitle)
@@ -119,7 +178,7 @@ struct IntroView<ActionView: View>: View {
                     .foregroundColor(colorScheme == .dark ? .white : .gray)
                     .multilineTextAlignment(.center)
                     .padding(.top, 15)
-                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.5), radius: 20)
+                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.2), radius: 20)
 
                 if !intro.displaysAction {
                     Group {

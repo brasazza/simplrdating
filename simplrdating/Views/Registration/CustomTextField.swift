@@ -45,3 +45,8 @@ struct CustomTextField: View {
         }
     }
 }
+
+#Preview {
+    Home()
+}
+
