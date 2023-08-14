@@ -41,6 +41,7 @@
 		5EF492B72A83ED3E00B52554 /* PageIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF492B62A83ED3E00B52554 /* PageIntro.swift */; };
 		5EF492B82A83ED3E00B52554 /* PageIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF492B62A83ED3E00B52554 /* PageIntro.swift */; };
 		5EF492B92A83ED3E00B52554 /* PageIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF492B62A83ED3E00B52554 /* PageIntro.swift */; };
+		CAA0B6F02A86EBDE00976A58 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA0B6EF2A86EBDE00976A58 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		5EF492AE2A83ECEC00B52554 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5EF492B22A83ED0400B52554 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		5EF492B62A83ED3E00B52554 /* PageIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIntro.swift; sourceTree = "<group>"; };
+		CAA0B6EF2A86EBDE00976A58 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 		5EF492A42A83EC5E00B52554 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				CAA0B6EF2A86EBDE00976A58 /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				5EC436FE2A869CF2004E6DD0 /* MatchesView.swift in Sources */,
 				5EC436FA2A83FD4A004E6DD0 /* SwipingView.swift in Sources */,
 				5EF492AB2A83ECD000B52554 /* CustomIndicatorView.swift in Sources */,
+				CAA0B6F02A86EBDE00976A58 /* LoginView.swift in Sources */,
 				5EF492B72A83ED3E00B52554 /* PageIntro.swift in Sources */,
 				5EC4370B2A86E96F004E6DD0 /* SettingsView.swift in Sources */,
 			);
@@ -614,7 +618,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"simplrdating/Preview Content\"";
-				DEVELOPMENT_TEAM = MT6TFTW824;
+				DEVELOPMENT_TEAM = 4WCAV9S3R9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -643,7 +647,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"simplrdating/Preview Content\"";
-				DEVELOPMENT_TEAM = MT6TFTW824;
+				DEVELOPMENT_TEAM = 4WCAV9S3R9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
