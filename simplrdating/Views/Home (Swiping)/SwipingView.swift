@@ -12,6 +12,11 @@ struct SwipingView: View {
         Profile(id: 1, imageName: "profile1"),
         Profile(id: 2, imageName: "profile2"),
         Profile(id: 3, imageName: "profile3"),
+        Profile(id: 4, imageName: "profile4"),
+        Profile(id: 5, imageName: "profile5"),
+        Profile(id: 6, imageName: "profile6"),
+        Profile(id: 7, imageName: "profile7"),
+        Profile(id: 8, imageName: "profile8"),
         // ... add more profiles as needed
     ]
     @State private var translation: CGSize = .zero

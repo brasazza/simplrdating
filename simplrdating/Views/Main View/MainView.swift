@@ -9,42 +9,65 @@ import SwiftUI
 
 struct MainView: View {
     @State private var selectedTab: Int = 0
+    @State private var isChatViewActive: Bool = false
+    @State private var isShowingSettings: Bool = false
 
     var body: some View {
-        VStack(spacing: 0) {
-            
-            TopNavBar()  // <-- Add this here
+        NavigationView {
+            VStack(spacing: 0) {
+                
+                TopNavBar(isChatViewActive: $isChatViewActive)
 
-            // Content
-            switch selectedTab {
-            case 0:
-                ProfileView()
-            case 1:
-                SwipingView()
-            case 2:
-                MatchesView()
-            default:
-                Text("Other views can be added here.")
+                // Content
+                switch selectedTab {
+                case 0:
+                    ProfileView()
+                case 1:
+                    SwipingView()
+                case 2:
+                    MatchesView()
+                default:
+                    Text("Other views can be added here.")
+                }
+                
+                // Custom Bottom Navigation
+                BottomNavBar(selectedTab: $selectedTab)
             }
-            
-            // Custom Bottom Navigation
-            BottomNavBar(selectedTab: $selectedTab)
         }
     }
 }
 
 struct TopNavBar: View {
+    @Binding var isChatViewActive: Bool
     @State private var isShowingSettings: Bool = false
-    
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         ZStack {
+            // If ChatView is active, show a back button
+            if isChatViewActive {
+                HStack {
+                    Button(action: {
+                        // This pops the view
+                        presentationMode.wrappedValue.dismiss()
+                        self.isChatViewActive = false
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .font(.title)
+                            .foregroundColor(.gray)
+                            .padding(.leading)
+                    }
+                    Spacer()
+                }
+            }
+
             Text("simplr.")
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
 //            HStack {
 //                Spacer()
-//                
+//
 //                NavigationLink(
 //                    destination: SettingsView(),
 //                    isActive: $isShowingSettings,
@@ -59,7 +82,6 @@ struct TopNavBar: View {
         }
     }
 }
-
 
 struct BottomNavBar: View {
     @Binding var selectedTab: Int
@@ -97,3 +119,4 @@ struct BottomNavBar: View {
 #Preview {
     MainView()
 }
+
