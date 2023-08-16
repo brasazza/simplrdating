@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChatView: View {
     var imageName: String
+    @Environment(\.colorScheme) var colorScheme
     @State private var currentMessage: String = ""
     @State private var messages: [ChatMessage] = [
         ChatMessage(id: UUID(), content: "Hola guapo", isCurrentUser: false, imageName: "profile2"),
@@ -65,6 +66,7 @@ struct ChatView: View {
     }
 
 struct ChatRow: View {
+    @Environment(\.colorScheme) var colorScheme
     var message: ChatMessage
     
     var body: some View {
@@ -84,6 +86,8 @@ struct ChatRow: View {
                 .background(message.isCurrentUser ? Color.blue : Color.gray.opacity(0.2))
                 .foregroundColor(message.isCurrentUser ? .white : .black)
                 .clipShape(RoundedRectangle(cornerRadius: 15))
+                .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.3), radius: 10)
+
             
             if message.isCurrentUser {
                 Image(message.imageName)
@@ -91,6 +95,7 @@ struct ChatRow: View {
                     .scaledToFill()
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
+
             } else {
                 Spacer()
             }

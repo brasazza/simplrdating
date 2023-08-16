@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State private var username: String = "Diego Franco"
     
     var body: some View {
@@ -15,42 +16,52 @@ struct ProfileView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top)
+                .shadow(color: colorScheme == .dark ? Color.white.opacity(0.2) : Color.black.opacity(0.5), radius: 10)
             
             Spacer()
             
-            Image("profile3") // Placeholder image for the main photo
-                .resizable()
-                .scaledToFill()
-                .frame(width: 300, height: 400)
-                .cornerRadius(10)
-                .shadow(radius: 5)
-                .overlay(
-                    LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.4)]), startPoint: .center, endPoint: .bottom)
-                )
+            VStack {
+                Image("profile3") // Imagen de referencia para la foto principal
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 300, height: 400)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.3), radius: 20)
+
             
             Spacer()
                         
-                        HStack(spacing: 10) {
+                        VStack(spacing: 10) {
                             Button(action: {
                                 // Edit Media Action
                             }) {
-                                Text("Edit Media")
-                                    .font(.headline)
+                                Text("Edit Profile")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(colorScheme == .dark ? .black : .white)
                                     .padding()
-                                    .background(Color.blue)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
+                                    .frame(width: 200)
+                                    .background {
+                                        Capsule()
+                                            .fill(colorScheme == .dark ? Color.white : Color.black)
+                                    }
+                                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.5) : Color.black.opacity(0.5), radius: 5)
                             }
                             
                             Button(action: {
                                 // Edit Preferences Action
                             }) {
                                 Text("Edit Preferences")
-                                    .font(.headline)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(colorScheme == .dark ? .black : .white)
                                     .padding()
-                                    .background(Color.purple)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
+                                    .frame(width: 200)
+                                    .background {
+                                        Capsule()
+                                            .fill(colorScheme == .dark ? Color.white : Color.black)
+                                    }
+                                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.5) : Color.black.opacity(0.5), radius: 5)
                             }
                         }
                         .padding(.bottom)

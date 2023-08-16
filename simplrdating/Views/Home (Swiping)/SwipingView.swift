@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SwipingView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State private var profiles: [Profile] = [
         Profile(id: 1, imageName: "profile1"),
         Profile(id: 2, imageName: "profile2"),
@@ -124,20 +125,20 @@ struct SwipingView: View {
     }
     
     struct ProfileCard: View {
-        var profile: Profile
-        
+        @Environment(\.colorScheme) var colorScheme
+        let profile: Profile
         var body: some View {
-            Image(profile.imageName)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 300, height: 400)
-                .cornerRadius(10)
-                .shadow(radius: 5)
-                .overlay(
-                    LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black.opacity(0.4)]), startPoint: .center, endPoint: .bottom)
-                )
+            VStack {
+                Image(profile.imageName)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 300, height: 400)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 10))
         }
     }
+
     
     // struct BottomNavBar: View {
     //    var body: some View {
@@ -184,8 +185,8 @@ struct SwipingView: View {
     //    }
     //}
     
-    //#Preview {
-    //    SwipingView()
-    //}
+    #Preview {
+        SwipingView()
+    }
     
 }

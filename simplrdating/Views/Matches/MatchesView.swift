@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MatchesView: View {
     // Dummy data for now
+    @Environment(\.colorScheme) var colorScheme
     @State private var matchedProfiles: [Profile] = [
         Profile(id: 1, imageName: "profile1"),
         Profile(id: 2, imageName: "profile2"),
@@ -39,8 +40,8 @@ struct MatchesView: View {
                                 .scaledToFill()
                                 .frame(width: 100, height: 100)
                                 .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.gray.opacity(0.5), lineWidth: 1))
-                                .shadow(radius: 5)
+                                .overlay(Circle().stroke(Color.gray.opacity(0.5), lineWidth: 0.1))
+                                .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.5), radius: 10)
                                 .onTapGesture {
                                     selectedProfileImage = profile.imageName
                                     showChatView = true
