@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State private var selectedTab: Int = 0
 
     var body: some View {
@@ -36,11 +37,12 @@ struct MainView: View {
 }
 
 struct TopNavBar: View {
+    @Environment(\.colorScheme) var colorScheme
     @State private var isShowingSettings: Bool = false
     
     var body: some View {
         ZStack {
-            Text("simplr.")
+            Text("simpl.")
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
@@ -53,19 +55,20 @@ struct TopNavBar: View {
                     Image(systemName: "gearshape.fill")
                         .font(.title)
                         .foregroundColor(.gray)
+                        .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.4), radius: 5)
                 }
-                .padding(.trailing, 20)  // Incrementé el padding para más espacio
-                .navigationDestination(isPresented: $isShowingSettings) {
-                    SettingsView()
-                }
+                .padding(.trailing, 20)
             }
-            
+        }
+        .sheet(isPresented: $isShowingSettings) {
+            SettingsView()
         }
     }
 }
 
 
 struct BottomNavBar: View {
+    @Environment(\.colorScheme) var colorScheme
     @Binding var selectedTab: Int
     
     var body: some View {
@@ -76,6 +79,8 @@ struct BottomNavBar: View {
                 Image(systemName: "person.crop.circle.fill")
                     .font(.largeTitle)
                     .foregroundColor(selectedTab == 0 ? .blue : .gray)
+                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.4), radius: 10)
+
             }
 
             Button(action: {
@@ -84,6 +89,8 @@ struct BottomNavBar: View {
                 Image(systemName: "flame.fill")
                     .font(.largeTitle)
                     .foregroundColor(selectedTab == 1 ? .red : .gray)
+                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.4), radius: 10)
+
             }
 
             Button(action: {
@@ -92,6 +99,8 @@ struct BottomNavBar: View {
                 Image(systemName: "message.circle.fill")
                     .font(.largeTitle)
                     .foregroundColor(selectedTab == 2 ? .blue : .gray)
+                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.4), radius: 10)
+
             }
         }
         .padding(.horizontal)

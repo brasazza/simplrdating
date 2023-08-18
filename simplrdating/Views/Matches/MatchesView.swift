@@ -26,56 +26,52 @@ struct MatchesView: View {
     @State private var showChatView: Bool = false
     
     var body: some View {
-            VStack {
-                if matchedProfiles.isEmpty {
-                    Spacer()
-                    Text("No matches yet. Keep swiping!")
-                        .foregroundColor(.gray)
-                    Spacer()
-                } else {
-                    LazyVGrid(columns: [GridItem(), GridItem(), GridItem()], spacing: 20) {
-                        ForEach(matchedProfiles, id: \.id) { profile in
-                            Image(profile.imageName)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 100, height: 100)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.gray.opacity(0.5), lineWidth: 0.1))
-                                .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.5), radius: 10)
-                                .onTapGesture {
-                                    selectedProfileImage = profile.imageName
-                                    showChatView = true
-                                }
-                        }
-                    }
-                    .padding()
-                }
-                
+        VStack {
+            if matchedProfiles.isEmpty {
                 Spacer()
-                
-                Button(action: {
-                    // Refresh action
-                }) {
-                    Image(systemName: "arrow.clockwise")
-                        .font(.title)
-                        .foregroundColor(.gray)
+                Text("No matches yet. Keep swiping!")
+                    .foregroundColor(.gray)
+                Spacer()
+            } else {
+                LazyVGrid(columns: [GridItem(), GridItem(), GridItem()], spacing: 20) {
+                    ForEach(matchedProfiles, id: \.id) { profile in
+                        Image(profile.imageName)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.gray.opacity(0.5), lineWidth: 0.1))
+                            .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.5), radius: 10)
+                            .onTapGesture {
+                                selectedProfileImage = profile.imageName
+                                showChatView = true
+                            }
+                    }
                 }
-                .padding(.bottom)
+                .padding()
             }
-            .background(
-                NavigationLink(
-                    "",
-                    destination: ChatView(imageName: selectedProfileImage),
-                    isActive: $showChatView
-                )
-                .hidden()
-            )
+            
+            Spacer()
+            Button(action: {
+                                // Refresh action
+                            }) {
+                                Image(systemName: "arrow.clockwise")
+                                    .font(.title)
+                                    .foregroundColor(.gray)
+                            }
+                            .padding(.bottom)
+                        }
+                        .background(
+                            NavigationLink(
+                                "",
+                                destination: ChatView(imageName: selectedProfileImage),
+                                isActive: $showChatView
+                            )
+                            .hidden()
+                        )
+                }
+            }
+
+    #Preview {
+        MatchesView()
     }
-}
-
-#Preview {
-    MatchesView()
-}
-
-
-

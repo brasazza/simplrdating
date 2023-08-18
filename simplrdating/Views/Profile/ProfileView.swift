@@ -48,21 +48,7 @@ struct ProfileView: View {
                                     }
                                     .shadow(color: colorScheme == .dark ? Color.white.opacity(0.5) : Color.black.opacity(0.5), radius: 5)
                             }
-                            
-                            Button(action: {
-                                // Edit Preferences Action
-                            }) {
-                                Text("Edit Preferences")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(colorScheme == .dark ? .black : .white)
-                                    .padding()
-                                    .frame(width: 200)
-                                    .background {
-                                        Capsule()
-                                            .fill(colorScheme == .dark ? Color.white : Color.black)
-                                    }
-                                    .shadow(color: colorScheme == .dark ? Color.white.opacity(0.5) : Color.black.opacity(0.5), radius: 5)
-                            }
+                    
                         }
                         .padding(.bottom)
                     }
