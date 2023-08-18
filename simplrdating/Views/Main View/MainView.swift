@@ -10,27 +10,33 @@ import SwiftUI
 struct MainView: View {
     @Environment(\.colorScheme) var colorScheme
     @State private var selectedTab: Int = 0
+    @State private var isShowingSettings: Bool = false
 
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                
-                TopNavBar()  // <-- Add this here
-
-                // Content
-                switch selectedTab {
-                case 0:
-                    ProfileView()
-                case 1:
-                    SwipingView()
-                case 2:
-                    MatchesView()
-                default:
-                    Text("Other views can be added here.")
+        ZStack {
+            // Content for main app
+            if !isShowingSettings {
+                VStack(spacing: 0) {
+                    TopNavBar(isShowingSettings: $isShowingSettings)
+                    
+                    switch selectedTab {
+                    case 0:
+                        ProfileView()
+                    case 1:
+                        SwipingView()
+                    case 2:
+                        MatchesView()
+                    default:
+                        Text("Other views can be added here.")
+                    }
+                    
+                    BottomNavBar(selectedTab: $selectedTab)
                 }
-                
-                // Custom Bottom Navigation
-                BottomNavBar(selectedTab: $selectedTab)
+            }
+
+            // Settings View
+            if isShowingSettings {
+                SettingsView(isShowingSettings: $isShowingSettings)
             }
         }
     }
@@ -38,7 +44,7 @@ struct MainView: View {
 
 struct TopNavBar: View {
     @Environment(\.colorScheme) var colorScheme
-    @State private var isShowingSettings: Bool = false
+    @Binding var isShowingSettings: Bool
     
     var body: some View {
         ZStack {
@@ -60,19 +66,15 @@ struct TopNavBar: View {
                 .padding(.trailing, 20)
             }
         }
-        .sheet(isPresented: $isShowingSettings) {
-            SettingsView()
-        }
     }
 }
-
 
 struct BottomNavBar: View {
     @Environment(\.colorScheme) var colorScheme
     @Binding var selectedTab: Int
     
     var body: some View {
-        HStack(spacing: 50) {  // Adjust the spacing value as needed
+        HStack(spacing: 50) {
             Button(action: {
                 selectedTab = 0
             }) {
@@ -80,7 +82,6 @@ struct BottomNavBar: View {
                     .font(.largeTitle)
                     .foregroundColor(selectedTab == 0 ? .blue : .gray)
                     .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.4), radius: 10)
-
             }
 
             Button(action: {
@@ -90,7 +91,6 @@ struct BottomNavBar: View {
                     .font(.largeTitle)
                     .foregroundColor(selectedTab == 1 ? .red : .gray)
                     .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.4), radius: 10)
-
             }
 
             Button(action: {
@@ -100,7 +100,6 @@ struct BottomNavBar: View {
                     .font(.largeTitle)
                     .foregroundColor(selectedTab == 2 ? .blue : .gray)
                     .shadow(color: colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.4), radius: 10)
-
             }
         }
         .padding(.horizontal)
